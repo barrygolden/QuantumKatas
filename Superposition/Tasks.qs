@@ -2,7 +2,6 @@
 // Licensed under the MIT license.
 
 namespace Quantum.Kata.Superposition {
-    
     open Microsoft.Quantum.Primitive;
     open Microsoft.Quantum.Canon;
     open Microsoft.Quantum.Extensions.Convert;

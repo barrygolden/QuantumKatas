@@ -36,7 +36,7 @@ namespace Quantum.Kata.JointMeasurements {
     operation SingleQubitMeasurement (qs : Qubit[]) : Int {
         // Hint: Use two single-qubit measurements.
         // ...
-        return -1;
+        return Measure([PauliZ, PauliZ], qs) == Zero ? 0 | 1;
     }
     
     

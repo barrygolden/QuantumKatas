@@ -33,43 +33,29 @@ namespace Quantum.Kata.Superposition {
     
     // ------------------------------------------------------
     operation T01_PlusState_Test () : Unit {
-        AssertEqualOnZeroState(1, PlusState, PlusState_Reference);
+        CheckTask1(PlusState);
     }
-    
-    
+
     // ------------------------------------------------------
     operation T02_MinusState_Test () : Unit {
-        AssertEqualOnZeroState(1, MinusState, MinusState_Reference);
+        CheckTask2(MinusState);
     }
-    
-    
+
     // ------------------------------------------------------
     operation T03_UnequalSuperposition_Test () : Unit {
-        // cross-test
-        AssertEqualOnZeroState(1, UnequalSuperposition(_, 0.0), ApplyToEachA(I, _));
-        AssertEqualOnZeroState(1, UnequalSuperposition(_, 0.5 * PI()), ApplyToEachA(X, _));
-        AssertEqualOnZeroState(1, UnequalSuperposition(_, 0.5 * PI()), ApplyToEachA(Y, _));
-        AssertEqualOnZeroState(1, UnequalSuperposition(_, 0.25 * PI()), PlusState_Reference);
-        AssertEqualOnZeroState(1, UnequalSuperposition(_, 0.75 * PI()), MinusState_Reference);
-        
-        for (i in 1 .. 36) {
-            let alpha = ((2.0 * PI()) * ToDouble(i)) / 36.0;
-            AssertEqualOnZeroState(1, UnequalSuperposition(_, alpha), UnequalSuperposition_Reference(_, alpha));
-        }
+        CheckTask3(UnequalSuperposition);
     }
     
     
     // ------------------------------------------------------
     operation T04_AllBasisVectors_TwoQubits_Test () : Unit {
-        // We only check for 2 qubits.
-        AssertEqualOnZeroState(2, AllBasisVectors_TwoQubits, AllBasisVectors_TwoQubits_Reference);
+        CheckTask4(AllBasisVectors_TwoQubits);
     }
     
     
     // ------------------------------------------------------
     operation T05_AllBasisVectorsWithPhases_TwoQubits_Test () : Unit {
-        // We only check for 2 qubits.
-        AssertEqualOnZeroState(2, AllBasisVectorsWithPhases_TwoQubits, AllBasisVectorsWithPhases_TwoQubits_Reference);
+        CheckTask5(AllBasisVectorsWithPhases_TwoQubits);
     }
     
     
