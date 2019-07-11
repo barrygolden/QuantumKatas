@@ -7,12 +7,15 @@
 // The tasks themselves can be found in Tasks.qs file.
 //////////////////////////////////////////////////////////////////////
 
-using Microsoft.Quantum.Simulation.XUnit;
-using Microsoft.Quantum.Simulation.Simulators;
-using Xunit.Abstractions;
 using System.Diagnostics;
 
-namespace Quantum.Kata.GroversAlgorithm
+using Microsoft.Quantum.Katas;
+using Microsoft.Quantum.Simulation.XUnit;
+
+using Xunit.Abstractions;
+
+
+namespace Quantum.Kata.DeutschJozsaAlgorithm
 {
     public class TestSuiteRunner
     {
@@ -25,12 +28,12 @@ namespace Quantum.Kata.GroversAlgorithm
 
         /// <summary>
         /// This driver will run all Q# tests (operations named "...Test") 
-        /// that belong to namespace Quantum.Kata.GroversAlgorithm.
+        /// that belong to namespace Quantum.Kata.DeutschJozsaAlgorithm.
         /// </summary>
-        [OperationDriver(TestNamespace = "Quantum.Kata.GroversAlgorithm")]
+        [OperationDriver(TestNamespace = "Quantum.Kata.DeutschJozsaAlgorithm")]
         public void TestTarget(TestOperation op)
         {
-            using (var sim = new QuantumSimulator())
+            using (var sim = new CounterSimulator())
             {
                 // OnLog defines action(s) performed when Q# test calls function Message
                 sim.OnLog += (msg) => { output.WriteLine(msg); };
